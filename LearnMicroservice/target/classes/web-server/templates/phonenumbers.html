@@ -1,0 +1,36 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+
+<body>
+
+	<h1>
+		<a href="\home">Anasayfa</a>
+	</h1>
+	<a th:href="${'/newphonenumber?id=' + {userId}}">Numara Ekle</a>
+
+	<table id="userList">
+		<thead>
+			<tr>
+				<th>Açıklama</th>
+				<th>Numara</th>
+				<th>İşlem</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="phoneNumber : ${phoneNumberList}">
+
+				<td th:text="${phoneNumber.name}"></td>
+				<td th:text="${phoneNumber.number}"></td>
+				<td><a th:href="${'/updatephonenumber?id=' + {phoneNumber.id}}">Gör</a>
+					<a th:href="${'/deletephonenumber?id=' + {phoneNumber.id}}">Sil</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

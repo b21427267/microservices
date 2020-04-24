@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<div>
+		<h1>
+			<a href="\home">Anasayfa</a>
+		</h1>
+		<h2 th:text="${title}"></h2>
+		<div>
+			<div>
+				<form action="#" th:action="@{/adduser}" th:object="${user}"
+					method="post">
+					<div class="row">
+						<input type="hidden" th:field="*{id}" id="id" />
+						<div>
+							<label>İsim:</label><br /> <input type="text" th:field="*{name}"
+								id="name"></input>
+
+						</div>
+						<div>
+							<label>Soyisim:</label> <br /> <input type="text"
+								th:field="*{surName}" id="surname"></input>
+						</div>
+						<div>
+							<label>Kullanıcı Adı:</label> <br /> <input type="text"
+								th:field="*{userName}" id="username"></input>
+						</div>
+					</div>
+					<div>
+						<input type="submit" th:value="${operation}"></input>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
